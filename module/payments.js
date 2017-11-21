@@ -4,8 +4,8 @@ const config = require('../secrets.js')
 //console.log(config)
 
 module.exports = {
-    getAddress: function (msg) {
-        return getDeposit(msg);
+    getAddress: function (id) {
+        return getDeposit(id);
     },
     // generate invoice
     invoice: function (amountUSD,address) {
@@ -19,13 +19,32 @@ module.exports = {
 
 }
 
+const build_invoice = async function(amountUSD,address) {
+    try {
+        let output = {}
+        if(!amountUSD || !address) throw Error('Missing params!')
 
+        let amountBTC = await blockchain.exchange.toBTC(amountUSD,"USD")
+        console.log('amountBTC: ', amountBTC);
+
+        let uri = ""
+
+        output.amount = amountBTC
+        output.address = address
+        output.uri = uri
+
+        return output
+    } catch (err) {
+        console.error(err);
+        throw Error(err);
+    }
+};
 
 
 const getDeposit = async function(userIndex) {
     try {
         console.log('userIndex: ', userIndex);
-        console.log('config.pubkey: ', pubkey);
+        console.log('config.pubkey: ', config.pubkey);
         const accountNum = 0;
         const m = bitcoinjs.HDNode.fromBase58(config.pubkey, bitcoinjs.networks.bitcoin);
         const derived1 = m.derive(accountNum); // account

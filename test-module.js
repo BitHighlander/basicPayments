@@ -1,3 +1,5 @@
+const blockchain = require('blockchain.info')
+
 
 const payments = require('./module/payments.js')
 
@@ -7,21 +9,25 @@ const payments = require('./module/payments.js')
 
 const customer = 1
 
+
+
+// get address
 // payments.getAddress(1)
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
 
-// blockchain.blockexplorer.getAddress('1HtSs7tmDFs6wjtQZDsJx3AaYgFxAgL1v8')
+// invoice 10USD
+payments.invoice(10,'1HtSs7tmDFs6wjtQZDsJx3AaYgFxAgL1v8')
+    .then(function(resp){
+        console.log("resp: ",resp)
+    })
+
+// lookup payment for customer
+// payments. paymentsByAddress('1HtSs7tmDFs6wjtQZDsJx3AaYgFxAgL1v8')
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
-
-// get address
-
-
-// lookup payment for customer
-
 
 
 // lookup global payments
