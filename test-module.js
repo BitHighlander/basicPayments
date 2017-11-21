@@ -4,7 +4,7 @@ const blockchain = require('blockchain.info')
 const payments = require('./module/payments.js')
 
 /*
-    Notes: each customer is an account, each invoice has its own
+    Notes: each customer is an account, each invoice has its own address
  */
 
 const customer = 1

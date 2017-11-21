@@ -27,7 +27,7 @@ const build_invoice = async function(amountUSD,address) {
         let amountBTC = await blockchain.exchange.toBTC(amountUSD,"USD")
         console.log('amountBTC: ', amountBTC);
 
-        let uri = ""
+        let uri = 'bitcoin:'+address+'?amount='+amountBTC
 
         output.amount = amountBTC
         output.address = address
