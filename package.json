@@ -1,0 +1,16 @@
+{
+  "name": "payments",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "mocha $(find test -name '*.spec.js')",
+    "test-cov": "istanbul cover -x test/mocha-common.spec.js _mocha -- $(find test -name '*.spec.js')",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.0",
+    "blockchain.info": "^2.10.1"
+  },
+  "devDependencies": {
+    "istanbul": "^1.0.0-alpha.2"
+  }
+}
