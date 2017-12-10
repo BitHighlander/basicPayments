@@ -9,25 +9,28 @@ const payments = require('./module/payments.js')
 
 const customer = 1
 
+//1Mp919RSyakLm9juyzwDicVXBVdxvqw9Mb
 
 
-// get address
-// payments.getAddress(1)
+//get address
+// payments.getAddress(3)
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
 
 // invoice 10USD
-payments.invoice(10,'1HtSs7tmDFs6wjtQZDsJx3AaYgFxAgL1v8')
-    .then(function(resp){
-        console.log("resp: ",resp)
-    })
-
-// lookup payment for customer
-// payments. paymentsByAddress('1HtSs7tmDFs6wjtQZDsJx3AaYgFxAgL1v8')
+// payments.invoice(10,'19eofCdUarH39CaK8nfkrzyaUHo8AcbjdT')
 //     .then(function(resp){
 //         console.log("resp: ",resp)
 //     })
+
+// lookup payment for customer
+payments. paymentsByAddress('19eofCdUarH39CaK8nfkrzyaUHo8AcbjdT')
+    .then(function(resp){
+        console.log("resp: ",resp)
+        console.log("resp: ",resp.txs[0].inputs)
+        console.log("resp: ",resp.txs[0].out)
+    })
 
 
 // lookup global payments

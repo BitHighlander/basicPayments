@@ -17,6 +17,8 @@ module.exports = {
     },
     // paymentByPubkey()
 
+    // build watchonly set
+
 }
 
 const build_invoice = async function(amountUSD,address) {
